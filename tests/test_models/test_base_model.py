@@ -71,7 +71,7 @@ class TestDocuemntationOfAll(unittest.TestCase):
         boolVal = len(BaseModel.to_dict.__doc__) > 1
         self.assertTrue(boolVal)
 
-
+# test is public
 class TestClassAttributes(unittest.TestCase):
     """
     Testing that class attributes are working correctly
@@ -276,6 +276,9 @@ class TestToDictMethod(unittest.TestCase):
         self.assertIsInstance(self.testObject1.to_dict(), dict)
 
     def test_for_correct_keys(self):
+        """
+        testing for correct keys
+        """
         self.assertIn("id", self.testObject1.to_dict())
         self.assertIn("created_at", self.testObject1.to_dict())
         self.assertIn("updated_at", self.testObject1.to_dict())
