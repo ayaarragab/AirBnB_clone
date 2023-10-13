@@ -1,11 +1,11 @@
 #!/usr/bin/python3
 """
-Models
+The console of the Airbnb project
 """
 import cmd
 import sys
 from datetime import datetime
-import models
+from models import storage
 from models.base_model import BaseModel
 
 
@@ -66,7 +66,7 @@ class HBNBCommand(cmd.Cmd):
         elif arg == '':
             print("** instance id missing **")
         else:
-            data = models.storage.all().get(command + '.' + arg)
+            data = storage.all().get(command + '.' + arg)
             if data is None:
                 print("** no instance found **")
             else:
@@ -87,12 +87,12 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         else:
             key = command + '.' + arg
-            data = models.storage.all().get(key)
+            data = storage.all().get(key)
             if data is None:
                 print("** no instance found **")
             else:
-                del models.storage.all()[key]
-                models.storage.save()
+                del storage.all()[key]
+                storage.save()
 
     def do_all(self, line):
         """
@@ -100,12 +100,12 @@ class HBNBCommand(cmd.Cmd):
         instances based or not on the class name
         """
         command = self.parseline(line)[0]
-        objs = models.storage.all()
+        objs = storage.all()
 
         if command is None:
             print([str(objs[obj]) for obj in objs])
         elif command not in self.classes:
-            key = objs.keys()
+            keys = objs.keys()
             print([str(objs[key]) for key in keys if key.startswith(command)])
         else:
             print("** class doesn't exist **")
