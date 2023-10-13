@@ -5,6 +5,7 @@ The file storage module
 import json
 import os
 from ..base_model import BaseModel
+from ..user import User
 
 
 class FileStorage:
@@ -15,7 +16,7 @@ class FileStorage:
 
     __file_path = "file.json"
     __objects = dict()
-    classesDict = {'BaseModel': BaseModel}
+    classesDict = {'BaseModel': BaseModel, 'User': User}
 
     def __init__(self):
         ...
