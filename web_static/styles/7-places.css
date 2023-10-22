@@ -11,15 +11,25 @@
 .placesit{
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.placesit .articles{
+display: flex;
+flex-direction: row;
 }
 .placesit article{
-    width: 390px;
+    width: 50%;
     padding: 20px;
     margin: 20px;
     border: 1px solid #FF5A5F;
     border-radius: 4px;
+    display: inline-block;
 }
 .placesit article h2{
     font-size: 30px;
     text-align: center;
+}
+.user, .description{
+    padding: 10px;
 }
