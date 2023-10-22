@@ -10,6 +10,7 @@
 }
 .placesit{
     width: 100%;
+    display: flex;
 }
 .placesit article{
     width: 390px;
